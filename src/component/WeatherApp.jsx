@@ -14,7 +14,7 @@ export default function WeatherApp() {
                 console.log(data)
             }
             return () => {
-                componentDidMount= false;
+                componentDidMount = false;
             }
         }
         fetchWeather();
@@ -28,11 +28,11 @@ export default function WeatherApp() {
         } else if (data.weather[0].main === "Thunderstorm") {
             icon = "fa-bolt"
         } else if (data.weather[0].main === "Drizzle") {
-            icon = "fa-rain"
+            icon = "fa-cloud-rain"
         } else if (data.weather[0].main === "Rain") {
-            icon = "fa-cloud-shower-heavy"
+            icon = "fa-cloud-showers-heavy"
         } else if (data.weather[0].main === "Snow") {
-            icon = "fa-snow-flake"
+            icon = "fa-snowflake"
         } else if (data.weather[0].main === "Clear") {
             icon = "fa-sun"
         } else {
@@ -40,7 +40,7 @@ export default function WeatherApp() {
         }
     } else {
         return (
-            <div>...Loading</div>
+            <div>...Incorrect City</div>
         )
     }
 
@@ -65,21 +65,21 @@ export default function WeatherApp() {
 
     return (
         <div>
-            <div className="container mt-5">
+            <div className="container mt-3">
                 <div className="row justify-content-center">
                     <div className="col-md-4">
-                        <h1 class="card text-white bg-dark mb-2 text-center">Weather App</h1>
-                        <div class="card text-white text-center border-0">
-                            <img src={`https://source.unsplash.com/500x900/?${search}`} class="card-img" alt="random pics" />
+                        <h1 className="card text-white bg-dark mb-0 text-center">Weather App</h1>
+                        <div className="card text-white text-center border-0">
+                            <img src={`https://source.unsplash.com/600x900/?${search}`} className="card-img" alt="City pics from search input" />
                             <div class="card-img-overlay">
                                 <form onSubmit={handleSubmit}>
-                                    <div class="input-group mb-4 w-75 mx-auto">
-                                        <input type="search" class="form-control" placeholder="Search City" aria-label="Search City" aria-describedby="basic-addon2"
+                                    <div className="input-group mb-4 w-75 mx-auto">
+                                        <input type="search" className="form-control" placeholder="Search City" aria-label="Search City" aria-describedby="basic-addon2"
                                             name="search"
                                             value={input}
                                             onChange={(e) => setInput(e.target.value)}
                                             required />
-                                        <button type="submit" class="input-group-text" id="basic-addon2"><i className="fas fa-search"></i></button>
+                                        <button type="submit" className="input-group-text" id="basic-addon2"><i className="fas fa-search"></i></button>
                                     </div>
                                 </form>
                                 <div className="bg-dark bg-opacity-50 py-3">
@@ -94,6 +94,37 @@ export default function WeatherApp() {
                                     <p className="lead fw-bolder mb-0">{data.weather[0].main}</p>
                                     <p className="lead">L:{data.main.temp_min}&deg;C | H:{data.main.temp_max}&deg;C</p>
                                 </div>
+                            </div>
+                            <div className="card-footer text-muted">
+                                {/* <Nav className="justify-content-center" activeKey="/home">
+                                    <Nav.Item>
+                                        <Nav.Link href="https://github.com/niltonroese"><i className="fab fa-github"></i></Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="https://www.linkedin.com/in/niltonmarmittroese/"><i className="fab fa-linkedin"></i></Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="https://soundactivity.bandcamp.com/"><i className="fa-bandcamp"></i></Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="mailto:niltonroese@gmail.com"><i className="fas fa-mail-bulk"></i></Nav.Link>
+                                    </Nav.Item>
+                                </Nav> */}
+                                <ul className="nav justify-content-center">
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="https://github.com/niltonroese"><i className="fab fa-github"></i></a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="https://www.linkedin.com/in/niltonmarmittroese/"><i className="fab fa-linkedin"></i></a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="https://medium.com/@niltonroese"><i className="fab fa-medium"></i></a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="mailto:niltonroese@gmail.com"><i className="fas fa-mail-bulk"></i></a>
+                                    </li>
+                                </ul>
+                                    <h6 className="small">Copyright © 2022 Nilton Roese</h6>
                             </div>
                         </div>
                     </div>
