@@ -51,7 +51,7 @@ export default function WeatherApp() {
     let month = d.toLocaleString("default", { month: 'long' });
     let day = d.toLocaleString("default", { weekday: 'long' });
 
-    //Current Time
+    // Current Time
     let time = d.toLocaleString([], {
         hour: '2-digit',
         minute: '2-digit',
@@ -68,7 +68,9 @@ export default function WeatherApp() {
             <div className="container mt-3">
                 <div className="row justify-content-center">
                     <div className="col-md-4">
-                        <h1 className="card text-white bg-dark mb-0 text-center">Weather App</h1>
+                        <div className="card-heather text-white bg-dark text-center p-1">
+                            <h1>Weather App</h1>
+                        </div>
                         <div className="card text-white text-center border-0">
                             <img src={`https://source.unsplash.com/600x900/?${search}`} className="card-img" alt="City pics from search input" />
                             <div class="card-img-overlay">
@@ -89,43 +91,29 @@ export default function WeatherApp() {
                                         {time}
                                     </p>
                                     <hr />
-                                    <i className={`fas ${icon} fa-4x`}></i>
-                                    <h1 className="fw-bolder mb-5">{data.main.temp}&deg;C</h1>
-                                    <p className="lead fw-bolder mb-0">{data.weather[0].main}</p>
+                                    <i className={`fas ${icon} mb-3 fa-4x`}></i>
+                                    <h1 className="fw-bolder mb-3">{data.main.temp}&deg;C</h1>
+                                    <p className="lead fw-bolder mb-1">{data.weather[0].main}</p>
                                     <p className="lead">L:{data.main.temp_min}&deg;C | H:{data.main.temp_max}&deg;C</p>
                                 </div>
                             </div>
-                            <div className="card-footer text-muted">
-                                {/* <Nav className="justify-content-center" activeKey="/home">
-                                    <Nav.Item>
-                                        <Nav.Link href="https://github.com/niltonroese"><i className="fab fa-github"></i></Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link eventKey="https://www.linkedin.com/in/niltonmarmittroese/"><i className="fab fa-linkedin"></i></Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link eventKey="https://soundactivity.bandcamp.com/"><i className="fa-bandcamp"></i></Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link eventKey="mailto:niltonroese@gmail.com"><i className="fas fa-mail-bulk"></i></Nav.Link>
-                                    </Nav.Item>
-                                </Nav> */}
-                                <ul className="nav justify-content-center">
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="https://github.com/niltonroese"><i className="fab fa-github"></i></a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="https://www.linkedin.com/in/niltonmarmittroese/"><i className="fab fa-linkedin"></i></a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="https://medium.com/@niltonroese"><i className="fab fa-medium"></i></a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="mailto:niltonroese@gmail.com"><i className="fas fa-mail-bulk"></i></a>
-                                    </li>
-                                </ul>
-                                    <h6 className="small">Copyright © 2022 Nilton Roese</h6>
-                            </div>
+                        </div>
+                        <div className="card-footer text-muted bg-dark">
+                            <ul className="nav justify-content-center">
+                                <li className="nav-item">
+                                    <a className="nav-link" href="https://github.com/niltonroese"><i className="fab fa-github"></i></a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="https://www.linkedin.com/in/niltonmarmittroese/"><i className="fab fa-linkedin"></i></a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="https://medium.com/@niltonroese"><i className="fab fa-medium"></i></a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="mailto:niltonroese@gmail.com"><i className="fas fa-mail-bulk"></i></a>
+                                </li>
+                            </ul>
+                            <h6 className="small text-center">Copyright © 2022 Nilton Roese</h6>
                         </div>
                     </div>
                 </div>
