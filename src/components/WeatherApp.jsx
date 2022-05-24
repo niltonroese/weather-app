@@ -1,25 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 
 export default function WeatherApp() {
     const [search, setSearch] = useState("Sunshine Coast");
     const [data, setData] = useState([]);
     const [input, setInput] = useState("");
-    let componentDidMount = true;
 
+    //fetch openweathermap
     useEffect(() => {
-        const fetchWeather = async () => {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=f2c57bd87fa770fda286cc102ebd1710`)
-            if (componentDidMount) {
-                setData(await response.json())
-                console.log(data)
-            }
-            return () => {
-                componentDidMount = false;
-            }
-        }
-        fetchWeather();
-    }, [search]);
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=f2c57bd87fa770fda286cc102ebd1710`)
+        .then(resp => resp.json())
+        .then(json => setData(json))
+        // console.log(data)
+    },[search])
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setSearch(input);
+    }
     //Background Image/Icons
     let icon = null;
     if (typeof data.main != "undefined") {
@@ -40,27 +38,8 @@ export default function WeatherApp() {
         }
     } else {
         return (
-            <div>...Incorrect City</div>
+            <div>Unknown city...please refresh browser!</div>
         )
-    }
-
-    //Current Date
-    let d = new Date();
-    let date = d.getDate();
-    let year = d.getFullYear();
-    let month = d.toLocaleString("default", { month: 'long' });
-    let day = d.toLocaleString("default", { weekday: 'long' });
-
-    // Current Time
-    let time = d.toLocaleString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-    });
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setSearch(input);
     }
 
     return (
@@ -86,15 +65,14 @@ export default function WeatherApp() {
                                 </form>
                                 <div className="bg-dark bg-opacity-50 py-3">
                                     <h2 class="card-title">{data.name}</h2>
-                                    <p class="card-text lead">{day}, {month} {date}, {year}
+                                    <p class="card-text lead">{moment().format('LLLL')}
                                         <br />
-                                        {time}
                                     </p>
                                     <hr />
                                     <i className={`fas ${icon} mb-3 fa-4x`}></i>
                                     <h1 className="fw-bolder mb-3">{data.main.temp}&deg;C</h1>
                                     <p className="lead fw-bolder mb-1">{data.weather[0].main}</p>
-                                    <p className="lead">L:{data.main.temp_min}&deg;C | H:{data.main.temp_max}&deg;C</p>
+                                    <p className="lead">L: {data.main.temp_min}&deg;C | H: {data.main.temp_max}&deg;C</p>
                                 </div>
                             </div>
                         </div>

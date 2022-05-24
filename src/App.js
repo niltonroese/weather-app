@@ -1,12 +1,10 @@
 import React from 'react';
-import WeatherApp from './component/WeatherApp';
+import WeatherApp from './components/WeatherApp';
 
-function App() {
+export default function App() {
   return (
     <div>
     <WeatherApp />
     </div>
   );
 }
-
-export default App;
