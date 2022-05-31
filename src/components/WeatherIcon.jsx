@@ -23,6 +23,6 @@ export default function Icon({ weather }) {
     }, [weather]);
 
     return (
-        <i className={`fas ${iconSymbol} mb-3 fa-4x`}></i>
+        <i className={`fas ${iconSymbol} mb-2 fa-4x`}></i>
     )
 }

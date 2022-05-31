@@ -6,6 +6,8 @@ export default function WeatherInfo({ data }) {
 
     const { name, main, weather } = data;
     const weatherMain = weather[0].main; //weatherIcon
+    const L = <i className="fas fa-temperature-low mb-3"></i>
+    const H = <i className="fas fa-temperature-high mb-3"></i>
 
     return (
         <div className="bg-dark bg-opacity-50 py-3">
@@ -14,10 +16,10 @@ export default function WeatherInfo({ data }) {
                 <br />
             </p>
             <hr />
-            <h1 className="fw-bolder mb-3">{Math.round(main.temp)}&deg;C</h1>
+            <h1 className="fw-bolder mb-2">{Math.round(main.temp)}&deg;C</h1>
             <Icon weather={weatherMain} />
             <p className="lead fw-bolder mb-2">{weatherMain}</p>
-            <p className="lead">L: {Math.round(main.temp_min)}&deg;C - H: {Math.round(main.temp_max)}&deg;C</p>
+            <p className="lead">{L}{Math.round(main.temp_min)}&deg;C - {H}{Math.round(main.temp_max)}&deg;C</p>
         </div>
 
     )
