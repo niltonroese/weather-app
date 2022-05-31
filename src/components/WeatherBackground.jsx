@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Footer from './Footer';
 import WeatherInfo from './WeatherInfo';
 
 export default function WeatherBackground() {

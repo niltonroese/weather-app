@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <div className="card-footer text-muted bg-dark">
+        <div className="card-footer text-muted bg-dark p-1">
             <ul className="nav justify-content-center">
                 <li className="nav-item">
                     <a className="nav-link" href="https://github.com/niltonroese"><i className="fab fa-github"></i></a>
