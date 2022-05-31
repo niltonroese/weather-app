@@ -5,7 +5,7 @@ import Icon from './WeatherIcon';
 export default function WeatherInfo({ data }) {
 
     const { name, main, weather } = data;
-    const weatherMain = weather[0].main;
+    const weatherMain = weather[0].main; //weatherIcon
 
     return (
         <div className="bg-dark bg-opacity-50 py-3">
@@ -14,10 +14,10 @@ export default function WeatherInfo({ data }) {
                 <br />
             </p>
             <hr />
+            <h1 className="fw-bolder mb-3">{Math.round(main.temp)}&deg;C</h1>
             <Icon weather={weatherMain} />
-            <h1 className="fw-bolder mb-3">{main.temp}&deg;C</h1>
             <p className="lead fw-bolder mb-2">{weatherMain}</p>
-            <p className="lead">L: {main.temp_min}&deg;C | H: {main.temp_max}&deg;C</p>
+            <p className="lead">L: {Math.round(main.temp_min)}&deg;C - H: {Math.round(main.temp_max)}&deg;C</p>
         </div>
 
     )

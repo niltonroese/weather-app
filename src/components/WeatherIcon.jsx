@@ -2,8 +2,8 @@ import React, { useMemo } from 'react'
 
 export default function Icon({ weather }) {
 
-    const iconName = useMemo(() => {
-        console.log(weather);
+    const iconSymbol = useMemo(() => {
+        // console.log(weather);
         switch (weather) {
             case "Clouds":
                 return "fa-cloud"
@@ -23,6 +23,6 @@ export default function Icon({ weather }) {
     }, [weather]);
 
     return (
-        <i className={`fas ${iconName} mb-3 fa-4x`}></i>
+        <i className={`fas ${iconSymbol} mb-3 fa-4x`}></i>
     )
 }
